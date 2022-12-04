@@ -18,7 +18,9 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data: Mapping[str, Any]) -> AbstractBaseUser:
         return get_user_model().objects.create_user(**validated_data)
 
-    def update(self, instance: Any, validated_data: MutableMapping[str, Any]) -> Any:
+    def update(
+        self, instance: Any, validated_data: MutableMapping[str, Any]
+    ) -> AbstractBaseUser:
         password = validated_data.pop("password", None)
         user = super().update(instance, validated_data)
 

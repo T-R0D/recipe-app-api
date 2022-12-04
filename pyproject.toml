@@ -1,0 +1,4 @@
+[tool.mypy]
+ignore_missing_imports = true
+verbosity = 9
+warn_return_any = true

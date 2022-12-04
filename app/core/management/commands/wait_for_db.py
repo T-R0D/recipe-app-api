@@ -1,5 +1,6 @@
 """Django command to wait for DB availability."""
 import time
+from typing import Any
 
 from psycopg2 import OperationalError as Psycopg2Error
 
@@ -10,7 +11,7 @@ from django.core.management.base import BaseCommand
 class Command(BaseCommand):
     """Django command to wait for DB availability."""
 
-    def handle(self, *args, **kwargs):
+    def handle(self, *args: Any, **kwargs: Any) -> None:
         self.stdout.write("Waiting for database...")
         db_up = False
         while not db_up:
